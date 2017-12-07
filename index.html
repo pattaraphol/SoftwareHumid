@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Humidifier | Setting</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="js/jquery.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+  	<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+  	<style>
+  		body {
+  			font-size: 17px;
+  		}
+  	</style>	
+</head>
+
+<body>
+	<div class="container" style="margin-top: 5px;">
+	  <div class="row">
+          <div class="col-md-3" style="border: 2px solid #EAEAEA; border-radius: 6px; background-color: #F6F6F6;">
+				<h3>ตั้งค่าความชื้น</h3>
+				<br>
+				<center><img src="images/humidifier.png" width="200px;" alt="เครื่องพ่นหมอก"></center><br>
+				<div>สถานะการทำงาน : <span id="status"></span></div><br>
+                Min(%) : <span id="showLow"></span>
+                
+                <input id="templow" class="form-control" type="text">
+                Max(%) : <span id="showHigh"></span>
+                <input id="tempHigh" class="form-control" type="text" ><br>
+                <button id="btn" class="btn btn-info" >ตั้งค่า</button><br><br>
+		  </div>
+
+		  <div class="col-md-1"></div>
+			
+		  <!-- Show Temperature & Humidity -->
+		  <div class="col-md-8" style="border: 2px solid #EAEAEA; border-radius: 10px; background-color: #F6F6F6;" >
+		  		<h3>แสดงค่าอุณหภูมิ ความชื้น <small class="text-muted">(ส่วนแสดงค่าอุณหภูมิ ความชื้นเอาไปทำเองนะครับ)</small></h3>
+		  		<div class="col-md-12 text-center">
+		  			<h4>อุณหภูมิ</h4>
+		  			<img src="images/temp.png" width="120px;">
+		  			<div>25 °C</div><hr>
+		  		</div>
+
+		  		<div class="col-md-12 text-center">
+		  			<h4>ความชื้นสัมพัทธ์</h4>
+		  			<img src="images/humid.png" width="120px;"><br><br>
+					<div>70 %</div><br><br>
+		  		</div>
+		  </div>
+		  <!-- END Show Humi & Temp-->
+
+	  </div>
+	  <div class="row" style="margin-top: 30px;">
+	  		<div class="col-md-12">
+	  			<div>
+	  				<h3>หลักการตั้งค่าความชื้น</h3>
+	  				<p>รับค่า Min , Max จากเว็บแอพพลิเคชั่น และนำมาตรวจสอบว่า</p>
+	  				<p style="margin-left: 20px;">- ถ้า ความชื้น น้อยกว่า ค่า Min จะสั่งให้เครื่องพ่นหมอกทำงาน</p> 
+	  				<p style="margin-left: 20px;">- ถ้า ความชื้น มากกว่า ค่า Max จะสั่งให้เครื่องพ่นหมอกหยุดทำงาน</p> 
+	  			</div>
+	  		</div>
+	  </div>
+	</div><br><br>
+	
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyCxVwEgt4siDlfcxKyZJydD6WtZm1JBAL8",
+	    authDomain: "projecter-24185.firebaseapp.com",
+	    databaseURL: "https://projecter-24185.firebaseio.com",
+	    projectId: "projecter-24185",
+	    storageBucket: "projecter-24185.appspot.com",
+	    messagingSenderId: "875636181163"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+	<script src="js/app.js"></script>
+	
+</body>
+	
+</html>
